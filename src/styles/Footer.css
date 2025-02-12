@@ -1,0 +1,11 @@
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #6a0572; /* Example color - change as you like */
+    color: white;
+    position: relative; /* For sticky footer (optional) */
+    width: 100%; /* Ensure full width */
+    bottom: 0; /* For sticky footer (optional) */
+  }
+  
+  /* Add more styles as needed */

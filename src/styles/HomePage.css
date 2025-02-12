@@ -1,0 +1,168 @@
+/* HomePage.css */
+
+.home {
+  font-family: 'Arial', sans-serif; /* Modern font stack */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background-image: url('your-hero-image.jpg'); /* Replace with your hero image URL */
+  background-size: cover;
+  background-position: center;
+  height: 80vh; /* Adjust height as needed */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.explore-btn {
+  padding: 12px 24px;
+  background-color: #ffc107; /* Example color - customize */
+  color: #212529;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #e6ab05;
+}
+
+/* Plan Your Trip Section */
+.plan-trip {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.plan-trip h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #343a40;
+}
+
+.plan-trip p {
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+.trip-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.highlight {
+  width: 250px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.highlight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.highlight h3 {
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+
+.highlight p {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Recommended Places */
+.recommended {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.recommended h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #343a40;
+}
+
+.places {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.place {
+  width: 200px; /* Adjust width as needed */
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.place:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Cruising Section */
+.cruising {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.cruising h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #343a40;
+}
+
+.cruise-logos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.cruise-logos img {
+  width: 150px;
+  filter: grayscale(50%); /* Slightly grayed out */
+  transition: filter 0.3s ease;
+}
+
+.cruise-logos img:hover {
+  filter: grayscale(0%); /* Full color on hover */
+}

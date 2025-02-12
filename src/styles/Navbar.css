@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #6a0572; /* Example color - change as you like */
+    color: white;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .nav-links a:hover {
+    color: #ddd; /* Lighter color on hover */
+  }
+  
+  /* Add more styles as needed */
