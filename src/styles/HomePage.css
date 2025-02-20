@@ -1,19 +1,16 @@
-/* HomePage.css */
-
 .home {
-  font-family: 'Arial', sans-serif; /* Modern font stack */
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  background-image: url('your-hero-image.jpg'); /* Replace with your hero image URL */
+  background-image: url('https://images.unsplash.com/photo-1512987415479-85f370bca602?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'); 
   background-size: cover;
   background-position: center;
-  height: 80vh; /* Adjust height as needed */
+  height: 90vh;
   display: flex;
-  flex-direction: column; /* Align items vertically */
   justify-content: center;
   align-items: center;
   color: white;
@@ -21,30 +18,28 @@
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 2rem;
   border-radius: 8px;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
-  line-height: 1.6;
 }
 
 .explore-btn {
   padding: 12px 24px;
-  background-color: #ffc107; /* Example color - customize */
+  background-color: #ffc107;
   color: #212529;
   border: none;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -54,115 +49,186 @@
   background-color: #e6ab05;
 }
 
-/* Plan Your Trip Section */
-.plan-trip {
-  padding: 4rem 0;
-  text-align: center;
+/* Plan With Us Section */
+.plan-with-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.plan-container {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+  gap: 30px;
+}
+
+.plan-text {
+  flex: 1;
+  text-align: left;
+}
+
+.plan-text h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.plan-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.plan-btn {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plan-btn:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: scale(1.05);
+}
+
+/* Explore Sections */
+.explore-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: white;
+}
+
+.explore-container {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+  gap: 30px;
+}
+
+/* Domestic - Image on Right, Text on Left */
+.explore-reverse {
+  flex-direction: row-reverse;
+}
+
+/* International - Image on Left, Text on Right */
+.explore-container .explore-image {
+  flex: 1;
+}
+
+.explore-container .explore-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Small Images */
+.explore-image img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .plan-container, .explore-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .plan-text, .explore-text {
+    text-align: center;
+  }
+
+  .plan-image img, .explore-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Destination Section */
+.destination-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
   background-color: #f8f9fa;
 }
 
-.plan-trip h2 {
-  font-size: 2rem;
+.destination-text {
+  flex: 1;
+  padding-right: 2rem;
+  max-width: 400px;
+}
+
+.destination-text h2 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #343a40;
 }
 
-.plan-trip p {
+.destination-text p {
+  font-size: 1.2rem;
   color: #6c757d;
-  margin-bottom: 2rem;
 }
 
-.trip-highlights {
+/* Scrollable Package Section */
+.destination-scroll {
+  flex: 2;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f8f9fa;
 }
 
-.highlight {
-  width: 250px;
+.destination-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.destination-scroll::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+.destination-scroll::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+/* Destination Cards */
+.destination-card {
+  flex: 0 0 250px;
   background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.highlight:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.highlight h3 {
-  color: #343a40;
-  margin-bottom: 0.5rem;
-}
-
-.highlight p {
-  color: #6c757d;
-  font-size: 0.9rem;
-}
-
-/* Recommended Places */
-.recommended {
-  padding: 4rem 0;
-  text-align: center;
-  background-color: #fff;
-}
-
-.recommended h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #343a40;
-}
-
-.places {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.place {
-  width: 200px; /* Adjust width as needed */
-  background-color: #f0f0f0;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.place:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Cruising Section */
-.cruising {
-  padding: 4rem 0;
   text-align: center;
-  background-color: #f8f9fa;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cruising h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+.destination-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.destination-card h4 {
+  font-size: 1.5rem;
   color: #343a40;
-}
-
-.cruise-logos {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.cruise-logos img {
-  width: 150px;
-  filter: grayscale(50%); /* Slightly grayed out */
-  transition: filter 0.3s ease;
-}
-
-.cruise-logos img:hover {
-  filter: grayscale(0%); /* Full color on hover */
 }

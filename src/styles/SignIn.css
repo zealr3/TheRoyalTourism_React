@@ -1,44 +1,64 @@
-.auth-container {
+/* Scoped styles for SignIn */
+#signin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #30b551, #3d6b4f);
+}
+
+/* SignIn Container */
+.signin-container {
   width: 100%;
   max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
-.auth-form h2 {
-  margin-bottom: 15px;
+/* SignIn Form */
+.signin-form h2 {
+  margin-bottom: 20px;
   color: #333;
+  font-weight: 600;
 }
 
-.auth-form input {
+.signin-form input {
   width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
-  margin-bottom: 15px; /* Add gap between input fields */
+  margin-bottom: 15px;
+  transition: border 0.3s;
 }
 
-.auth-form button {
+.signin-form input:focus {
+  border: 2px solid #007bff;
+  outline: none;
+}
+
+/* SignIn Button */
+.signin-form button {
   width: 100%;
   padding: 12px;
-  background: #007bff; /* Blue color */
+  background: #007bff;
   border: none;
   color: white;
   font-size: 16px;
-  border-radius: 5px;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.auth-form button:hover {
-  background: #0056b3; /* Darker blue on hover */
+.signin-form button:hover {
+  background: #0056b3;
 }
 
+/* Error & Success Messages */
 .error-message {
   color: red;
   margin-bottom: 10px;
@@ -49,7 +69,14 @@
   margin-bottom: 10px;
 }
 
-.auth-toggle {
-  color: #007bff; /* Blue color for the sign-up link */
+/* Link to Sign Up */
+.signin-toggle {
+  color: #007bff;
   font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.signin-toggle:hover {
+  text-decoration: underline;
 }

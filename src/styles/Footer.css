@@ -1,11 +1,86 @@
+/* Footer Styles */
 .footer {
+  background-color: white;
+  color: black;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid #6a0572;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  text-align: left;
+}
+
+/* Footer Sections */
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  color: #6a0572;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #6a0572;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #6a0572;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 1rem;
-    background-color: #6a0572; /* Example color - change as you like */
-    color: white;
-    position: relative; /* For sticky footer (optional) */
-    width: 100%; /* Ensure full width */
-    bottom: 0; /* For sticky footer (optional) */
   }
-  
-  /* Add more styles as needed */
+}
