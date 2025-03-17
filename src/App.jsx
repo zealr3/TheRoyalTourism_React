@@ -17,7 +17,9 @@ function App() {
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      const parsedUser = JSON.parse(savedUser);
+      console.log("Loading saved user:", parsedUser);
+      setUser(parsedUser);
     }
   }, []);
 

@@ -1,17 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import PropTypes from "prop-types"; // Import PropTypes
+import PropTypes from "prop-types"; 
 import "../styles/Navbar.css"; 
 
-const Navbar = ({ user, setUser  }) => {
+const Navbar = ({ user, setUser }) => {
+  console.log("Navbar rendering with user:", user);
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleLogout = () => {
-    console.log("Logging out..."); // Debugging line
-    localStorage.removeItem("user"); // Remove user from local storage
-    setUser (null); // Clear user state
-    console.log("User  state after logout:", null); // Debugging line
+    console.log("Logging out..."); 
+    localStorage.removeItem("user"); 
+    setUser(null); 
+    console.log("User state after logout:", null); 
   };
 
   return (
@@ -20,7 +21,7 @@ const Navbar = ({ user, setUser  }) => {
       <ul className="nav-links">
         <li><Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
         <li><Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About Us</Link></li>
-        
+
         <li 
           className="dropdown"
           onMouseEnter={() => setDropdownOpen(true)}
@@ -40,7 +41,9 @@ const Navbar = ({ user, setUser  }) => {
 
         {user ? (
           <>
-            <li>Welcome, {user.name}!</li>
+            <li>
+              <span>Welcome, {user.name}!</span>
+            </li>
             <li>
               <button onClick={handleLogout} className="logout-button">Logout</button>
             </li>

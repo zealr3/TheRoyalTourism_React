@@ -34,16 +34,17 @@ const SignIn = ({ setUser  }) => {
       const data = await response.json();
 
       if (response.ok) {
-        const userData = { name: data.name, email: email };
+        // Access fullname from the user object in the response
+        const userData = { name: data.user.fullname, email: email };
+        console.log("User data being saved:", userData); // Add this to debug
         localStorage.setItem("user", JSON.stringify(userData));
-         
-        setUser (userData); 
+        
+        setUser(userData);
+        
         setSuccess("Login successful!");
         setEmail("");
         setPassword("");
-        navigate("/"); 
-      } else {
-        setError(data.message || "Login failed.");
+        navigate("/");
       }
     } catch (err) {
       setError("An error occurred during login.");
@@ -80,7 +81,7 @@ const SignIn = ({ setUser  }) => {
             </button>
           </form>
           <p>
-            Don't have an account?{" "}
+            Dont have an account?{" "}
             <Link to="/signup" className="signin-toggle">
               Sign Up
             </Link>
@@ -92,7 +93,7 @@ const SignIn = ({ setUser  }) => {
 };
 
 SignIn.propTypes = {
-  setUser:-  PropTypes.func.isRequired,
+  setUser:  PropTypes.func.isRequired,
 };
 
 export default SignIn;
