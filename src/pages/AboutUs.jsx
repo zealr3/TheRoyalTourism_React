@@ -1,4 +1,6 @@
 import "../styles/AboutUs.css"; // Import the CSS file
+import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+  
 
 const AboutUs = () => {
   return (
@@ -36,23 +38,31 @@ const AboutUs = () => {
         <h2 className="team-title">Meet Our Team</h2>
         <div className="team-container">
           {[
-         
-         { name: "Harshil Vanparia", role: "UI/UX Designer", image: "https://i.pravatar.cc/150?img=46" },
-         { name: "Zeal Raval", role: "Backend Developer", image: "https://i.pravatar.cc/150?img=14" },
-         { name: "Dhaval Goswami", role: "Travel Consultant", image: "https://i.pravatar.cc/150?img=35" }
-       
-        
+            { name: "Harshil Vanparia", role: "UI/UX Designer", image: "https://i.pravatar.cc/150?img=46", linkedin: "#", twitter: "#", instagram: "#" },
+            { name: "Zeal Raval", role: "Backend Developer", image: "https://i.pravatar.cc/150?img=14", linkedin: "#", twitter: "#", instagram: "#" },
+            { name: "Dhaval Goswami", role: "Travel Consultant", image: "https://i.pravatar.cc/150?img=35", linkedin: "#", twitter: "#", instagram: "#" }
           ].map((member, index) => (
             <div key={index} className="team-member">
               <img src={member.image} alt={member.name} className="team-photo" />
               <h3 className="team-name">{member.name}</h3>
               <p className="team-role">{member.role}</p>
-            </div>
+              {/* Social Media Icons */}
+              <div className="team-social">
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin className="social-icon linkedin" />
+                </a>
+                <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                  <FaTwitter className="social-icon twitter" />
+                </a>
+                <a href={member.instagram} target="_blank" rel="noopener noreferrer">
+                  <FaInstagram className="social-icon instagram" />
+                </a>
+              </div>
+              </div>
           ))}
         </div>
       </div>
-
-      {/* Why Choose Us */}
+        {/* Why Choose Us */}
       <div className="why-choose">
         <h2 className="why-title">Why Choose The Royal Tourism?</h2>
         <div className="why-container">

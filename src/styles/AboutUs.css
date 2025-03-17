@@ -195,3 +195,28 @@
     align-items: center;
   }
 }
+.team-social {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  font-size: 20px;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icon.linkedin:hover {
+  color: #0077b5;
+}
+
+.social-icon.twitter:hover {
+  color: #1da1f2;
+}
+
+.social-icon.instagram:hover {
+  color: #e4405f;
+}
+

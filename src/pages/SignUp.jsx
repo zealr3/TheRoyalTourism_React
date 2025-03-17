@@ -1,50 +1,56 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "../styles/SignUp.css"; // Correct path
+import PropTypes from "prop-types";  
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/SignUp.css";
 
-const SignUp = () => {
+const SignUp = ({ setUser  }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
+    setLoading(true);
 
     if (!name || !email || !password || !confirmPassword) {
       setError("All fields are required.");
+      setLoading(false);
       return;
     }
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
+      setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch("/api/signup", {
+      const response = await fetch("http://localhost:5000/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ fullname: name, email, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess("Signup successful. Please login.");
-        setName("");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
+        const userData = { name: name, email: email };
+        localStorage.setItem("user", JSON.stringify(userData));
+        setUser (userData);
+        navigate("/account");
       } else {
-        setError(data.message || "Signup failed.");
+        setError(data.error || "Signup failed.");
       }
     } catch (err) {
-      setError("An error occurred during signup.");
+      setError ("An error occurred during signup.");
       console.error("Signup Error:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,7 +60,6 @@ const SignUp = () => {
         <div className="signup-form">
           <h2>Create an Account</h2>
           {error && <div className="error-message">{error}</div>}
-          {success && <div className="success-message">{success}</div>}
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -84,7 +89,9 @@ const SignUp = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            <button type="submit">Sign Up</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Loading..." : "Sign Up"}
+            </button>
           </form>
           <p>
             Already have an account?{" "}
@@ -96,6 +103,10 @@ const SignUp = () => {
       </div>
     </div>
   );
+};
+
+SignUp.propTypes = {
+  setUser:-  PropTypes.func.isRequired,
 };
 
 export default SignUp;

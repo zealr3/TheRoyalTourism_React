@@ -1,82 +1,88 @@
-/* Scoped styles to avoid conflicts */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
 #signup-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #4c6989, #4ea842);
 }
 
-/* Signup Container */
 .signup-container {
-  width: 100%;
-  max-width: 400px;
-  padding: 25px;
   background: white;
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Signup Form */
 .signup-form h2 {
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .signup-form input {
+  display: block;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  transition: border 0.3s;
-}
-
-.signup-form input:focus {
-  border: 2px solid #007bff;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   outline: none;
 }
 
-/* Signup Button */
 .signup-form button {
   width: 100%;
-  padding: 12px;
-  background: #007bff;
-  border: none;
+  padding: 0.75rem;
+  background-color: #007bff;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 6px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
 
 .signup-form button:hover {
-  background: #0056b3;
+  background-color: #0056b3;
 }
 
-/* Error & Success Messages */
+.signup-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message, .success-message {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
 .error-message {
-  color: red;
-  margin-bottom: 10px;
+  background-color: #ffcccc;
+  color: #d8000c;
 }
 
 .success-message {
-  color: green;
-  margin-bottom: 10px;
+  background-color: #ccffcc;
+  color: #4f8a10;
 }
 
-/* Link to Sign In */
-.signup-toggle {
-  color: #007bff;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
+/* Loader Animation */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+  display: inline-block;
 }
 
-.signup-toggle:hover {
-  text-decoration: underline;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

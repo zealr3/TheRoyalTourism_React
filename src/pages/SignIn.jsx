@@ -1,25 +1,31 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "../styles/SignIn.css"; // Ensure correct path
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/SignIn.css";
 
-const SignIn = () => {
+const SignIn = ({ setUser  }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setLoading(true);
 
     if (!email || !password) {
       setError("Both fields are required.");
+      setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch("/api/signin", {
+      const response = await fetch("http://localhost:5000/api/login", { 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -28,15 +34,22 @@ const SignIn = () => {
       const data = await response.json();
 
       if (response.ok) {
+        const userData = { name: data.name, email: email };
+        localStorage.setItem("user", JSON.stringify(userData));
+         
+        setUser (userData); 
         setSuccess("Login successful!");
         setEmail("");
         setPassword("");
+        navigate("/"); 
       } else {
         setError(data.message || "Login failed.");
       }
     } catch (err) {
       setError("An error occurred during login.");
       console.error("Login Error:", err);
+    } finally {
+      setLoading(false); // Ensure loading state is reset
     }
   };
 
@@ -62,10 +75,12 @@ const SignIn = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="submit">Sign In</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Loading..." : "Sign In"}
+            </button>
           </form>
           <p>
-            Dont have an account?{" "}
+            Don't have an account?{" "}
             <Link to="/signup" className="signin-toggle">
               Sign Up
             </Link>
@@ -74,6 +89,10 @@ const SignIn = () => {
       </div>
     </div>
   );
+};
+
+SignIn.propTypes = {
+  setUser:-  PropTypes.func.isRequired,
 };
 
 export default SignIn;

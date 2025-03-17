@@ -1,0 +1,37 @@
+.account-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f0f0f0;
+  }
+  
+  .account-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .account-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .account-card p {
+    margin-bottom: 20px;
+  }
+  
+  .account-card button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .account-card button:hover {
+    background-color: #0056b3;
+  }
+  

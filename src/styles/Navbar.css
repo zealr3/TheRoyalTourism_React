@@ -1,34 +1,118 @@
-
+/* Navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: #ffffff; /* White background */
   color: rgb(0, 0, 0);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
+/* Logo styling */
 .logo {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: #6a0572; /* Dark purple */
 }
 
+/* Navigation links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
+/* Nav items */
+.nav-links li {
+  position: relative;
+}
+
+/* Nav links */
 .nav-links a {
   color: rgb(0, 0, 0);
   text-decoration: none;
+  font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 50px; /* Full round shape */
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px; /* Full round shape */
 }
 
-.nav-links a:hover, .nav-links .active {
+/* Hover and active link styles */
+.nav-links a:hover,
+.nav-links .active {
   background-color: #6a0572; /* Dark purple background */
   color: white;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 1000;
+}
+.dropdown-title {
+  cursor: default;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+  padding: 0.5rem;
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+  color: black;
+  padding: 0.5rem 1rem;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Dropdown hover effect */
+.dropdown-menu a:hover {
+  background: #ee6bbe;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
 }
