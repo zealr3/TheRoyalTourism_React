@@ -1,59 +1,67 @@
-
-import "../styles/InternationalDestination.css"; // Ensure this CSS file exists
-
-const destinations = [
-  { 
-    name: "Paris, France", 
-    image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
-  },
-  { 
-    name: "New York, USA", 
-    image: "https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg"
-  },
-  { 
-    name: "Tokyo, Japan", 
-    image: "https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg"
-  },
-  { 
-    name: "London, UK", 
-    image: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg"
-  },
-  { 
-    name: "Sydney, Australia", 
-    image: "https://images.pexels.com/photos/2193300/pexels-photo-2193300.jpeg"
-  },
-  { 
-    name: "Dubai, UAE", 
-    image: "https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg"
-  },
-  { 
-    name: "Singapore", 
-    image: "https://images.pexels.com/photos/1154189/pexels-photo-1154189.jpeg"
-  },
-  { 
-    name: "Rome, Italy", 
-    image: "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg"
-  },
-  { 
-    name: "Barcelona, Spain", 
-    image: "https://images.pexels.com/photos/672630/pexels-photo-672630.jpeg"
-  },
-];
+import { useEffect, useState } from "react";
+import "../styles/InternationalDestination.css";
+import axios from "axios";
 
 const InternationalDestination = () => {
+  const [destinations, setDestinations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchDestinations = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/destinations/international"
+        );
+        setDestinations(response.data);
+      } catch (err) {
+        console.error("Error fetching international destinations:", err);
+        setError("❌ Failed to load destinations. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDestinations();
+  }, []);
+
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
+
   return (
-    <div className="destination-wrapper">
-      <h1 className="destination-title">International Destinations</h1>
-      <div className="destination-container">
-        {destinations.map((destination, index) => (
-          <div key={index} className="destination-card">
-            <img src={destination.image} alt={destination.name} className="destination-image" />
-            <div className="overlay"></div>
-            <div className="destination-details">
-              <h2 className="destination-name">{destination.name}</h2>
-            </div>
+    <div className="page-wrapper">
+      {/* Hero Section */}
+      <div className="hero-section">
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1>Explore the World 🌍</h1>
+          <p>Discover stunning international destinations with us!</p>
+        </div>
+      </div>
+
+      {/* Destination List */}
+      <div className="destination-wrapper">
+        {destinations.length === 0 ? (
+          <div className="no-data">No destinations available.</div>
+        ) : (
+          <div className="destination-container">
+            {destinations.map((destination) => (
+              <div key={destination.did} className="destination-card">
+                <div className="image-wrapper">
+                  <img
+                    src={destination.image}
+                    alt={destination.name}
+                    className="destination-image"
+                  />
+                </div>
+                <div className="destination-details">
+                  <h2>{destination.name}</h2>
+                  <p>{destination.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

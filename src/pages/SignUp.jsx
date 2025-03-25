@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/SignUp.css";
 
-const SignUp = ({ setUser  }) => {
+const SignUp = ({ setUser }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,21 +33,16 @@ const SignUp = ({ setUser  }) => {
       const response = await fetch("http://localhost:5000/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullname: name, email, password }),
+        body: JSON.stringify({ fullname: name, email, password })  // No role is sent
       });
   
       const data = await response.json();
   
       if (response.ok) {
-        // Use the name from the form input since we already have it
-        // Or use data.user.fullname if you prefer getting it from the response
         const userData = { name: name, email: email };
-        console.log("User data being saved:", userData); // Add this to debug
         localStorage.setItem("user", JSON.stringify(userData));
         
         setUser(userData);
-        
-        // Navigate to account or home page
         navigate("/");
       } else {
         setError(data.error || "Signup failed.");
@@ -59,6 +54,7 @@ const SignUp = ({ setUser  }) => {
       setLoading(false);
     }
   };
+
   return (
     <div id="signup-page">
       <div className="signup-container">

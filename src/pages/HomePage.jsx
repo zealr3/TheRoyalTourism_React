@@ -9,14 +9,18 @@ const HomePage = () => {
         <div className="floating-element element-1"></div>
         <div className="floating-element element-2"></div>
         <div className="floating-element element-3"></div>
+        <div className="hero-header">
+        <div className="hero-header-overlay">
         
         <div className="hero-content">
           <div className="text-container">
             <h1 className="hero-title">Welcome to <br /><span>The Royal Tourism!</span></h1>
             <p className="hero-subtitle">Uncover the worlds most beautiful destinations and create joyful memories with your loved ones.</p>
-            <button className="explore-btn">EXPLORE</button>
-          </div>
-        </div>
+            {/* <button className="explore-btn">EXPLORE</button> */}
+            </div>
+            </div>
+            </div>
+            </div>
       </section>
 
       {/* Plan With Us Section */}
