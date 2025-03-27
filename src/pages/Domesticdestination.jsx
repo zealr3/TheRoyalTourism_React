@@ -5,12 +5,12 @@ import axios from "axios";
 const DomesticDestination = () => {
   const [destinations, setDestinations] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/destinations/domestic');
+        const response = await axios.get("http://localhost:5000/api/destinations/domestic");
         setDestinations(response.data);
         setLoading(false);
       } catch (err) {
@@ -23,37 +23,45 @@ const DomesticDestination = () => {
     fetchDestinations();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  const handleOpen = (destination) => {
+    alert(`Opening details for ${destination.name}`);
+  };
+
+  if (loading) return <div className="domestic-loading">Loading...</div>;
+  if (error) return <div className="domestic-error">{error}</div>;
 
   return (
     <>
       {/* Hero Section */}
-      <div className="hero-Section">
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
+      <div className="domestic-hero-section">
+        <div className="domestic-hero-overlay"></div>
+        <div className="domestic-hero-content">
           <h1>Discover Incredible India</h1>
-          <p>Explore the diverse beauty of India with us!</p>
-          <button className="explore-btn">Start Your Journey</button>
+          <p>Explore the diverse beauty of India’s domestic treasures</p>
         </div>
       </div>
 
       {/* Destination Cards */}
-      <div className="destination-wrapper">
+      <div className="domestic-destination-wrapper">
         <h2>Popular Domestic Destinations</h2>
-        <div className="destination-container">
+        <div className="domestic-destination-container">
           {destinations.map(destination => (
-            <div key={destination.did} className="destination-card">
+            <div key={destination.did} className="domestic-destination-card">
               <img
                 src={destination.image}
                 alt={destination.name}
-                className="destination-image"
+                className="domestic-destination-image"
                 crossOrigin="anonymous"
               />
-              <div className="destination-details">
-                <h2>{destination.name}</h2>
+              <div className="domestic-destination-details">
+                <h3>{destination.name}</h3>
                 <p>{destination.description}</p>
-                <button className="view-details-btn">View Details</button>
+                <button
+                  className="domestic-open-btn"
+                  onClick={() => handleOpen(destination)}
+                >
+                  Open
+                </button>
               </div>
             </div>
           ))}

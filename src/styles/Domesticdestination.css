@@ -1,4 +1,4 @@
-/* DomesticDestination.css */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,181 +6,146 @@
 }
 
 /* Hero Section */
-.hero-Section {
+.domestic-hero-section {
   position: relative;
-  height: 70vh;
-  min-height: 500px;
-  background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+  height: 60vh;
+  min-height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
+  justify-content: center; 
   text-align: center;
+  overflow: hidden;
 }
 
-.hero-overlay {
+.domestic-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
 }
 
-.hero-content {
+.domestic-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #fff;
+  max-width: 900px;
   padding: 0 20px;
+  color: #fff;
 }
 
-.hero-content h1 {
-  font-size: 3.2rem;
+.domestic-hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
 }
 
-.hero-content p {
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.explore-btn {
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  padding: 12px 28px;
-  font-size: 1.1rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4);
-}
-
-.explore-btn:hover {
-  background-color: #ff5252;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.5);
+.domestic-hero-content p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Destination Section */
-.destination-wrapper {
+.domestic-destination-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 20px;
 }
 
-.destination-wrapper > h2 {
+.domestic-destination-wrapper > h2 {
   text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #333;
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
-.destination-wrapper > h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background-color: #ff6b6b;
-}
-
-.destination-container {
+.domestic-destination-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
-.destination-card {
-  border-radius: 12px;
+/* Destination Card */
+.domestic-destination-card {
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: white;
 }
 
-.destination-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+.domestic-destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.destination-image {
+.domestic-destination-image {
   width: 100%;
-  height: 220px;
+  height: 150px;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
-.destination-card:hover .destination-image {
-  transform: scale(1.05);
+.domestic-destination-card:hover .domestic-destination-image {
+  transform: scale(1.03);
 }
 
-.destination-details {
-  padding: 1.5rem;
+.domestic-destination-details {
+  padding: 1rem;
 }
 
-.destination-details h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.8rem;
+.domestic-destination-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
   color: #222;
 }
 
-.destination-details p {
+.domestic-destination-details p {
   color: #666;
-  line-height: 1.6;
-  margin-bottom: 1.2rem;
-}
-
-.view-details-btn {
-  background-color: transparent;
-  color: #ff6b6b;
-  border: 2px solid #ff6b6b;
-  padding: 8px 20px;
   font-size: 0.9rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
 }
 
-.view-details-btn:hover {
+.domestic-open-btn {
   background-color: #ff6b6b;
   color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
-/* Loading & Error States */
-div:empty + div:not([class]) {
-  text-align: center;
-  padding: 3rem;
-  font-size: 1.2rem;
-  color: #666;
+.domestic-open-btn:hover {
+  background-color: #ff5252;
+  transform: translateY(-1px);
 }
 
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
+  .domestic-hero-content h1 {
+    font-size: 2.2rem;
   }
   
-  .hero-content p {
+  .domestic-hero-content p {
     font-size: 1.2rem;
   }
   
-  .destination-container {
+  .domestic-destination-container {
     grid-template-columns: 1fr;
   }
 
-  .destination-wrapper > h2 {
-    font-size: 1.8rem;
+  .domestic-destination-wrapper > h2 {
+    font-size: 1.6rem;
   }
 }

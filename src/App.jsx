@@ -10,6 +10,7 @@ import ContactUs from './pages/ContactUs';
 import DomesticDestinations from './pages/Domesticdestination';
 import InternationalDestination from './pages/Internationaldestination';
 import Account from './pages/Account'; // ✅ Create this new page
+import AnyFestivalPage from './pages/Anyfestival';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/Destinations/Domesticdestinations" element={<DomesticDestinations />} />
         <Route path="/Destinations/InternationalDestination" element={<InternationalDestination />} />
         <Route path="/account" element={<Account user={user} setUser={setUser} />} /> {/* New Account Route */}
+        <Route path="/Anyfestival" element={<AnyFestivalPage/>} />
       </Routes>
       <Footer />
     </Router>

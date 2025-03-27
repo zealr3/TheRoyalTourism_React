@@ -37,7 +37,7 @@ const Navbar = ({ user, setUser }) => {
         </li>
 
         <li><Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact Us</Link></li>
-        <li><Link to="/festival" className={location.pathname === "/festival" ? "active" : ""}>Any Festival</Link></li>
+        <li><Link to="/Anyfestival" className={location.pathname === "/Anyfestival" ? "active" : ""}>Any Festival</Link></li>
 
         {user ? (
           <>

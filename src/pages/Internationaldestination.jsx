@@ -41,6 +41,7 @@ const InternationalDestination = () => {
 
       {/* Destination List */}
       <div className="destination-wrapper">
+      <h2 className="section-title">🌍 Popular International Destinations 🌟</h2>
         {destinations.length === 0 ? (
           <div className="no-data">No destinations available.</div>
         ) : (
@@ -57,6 +58,15 @@ const InternationalDestination = () => {
                 <div className="destination-details">
                   <h2>{destination.name}</h2>
                   <p>{destination.description}</p>
+                  {/* Open Button */}
+                  <button
+                    className="open-button"
+                    onClick={() =>
+                      window.open(`/destination/${destination.did}`, "_blank")
+                    }
+                  >
+                    Open
+                  </button>
                 </div>
               </div>
             ))}
