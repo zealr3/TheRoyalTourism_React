@@ -11,6 +11,7 @@ import DomesticDestinations from './pages/Domesticdestination';
 import InternationalDestination from './pages/Internationaldestination';
 import Account from './pages/Account'; // ✅ Create this new page
 import AnyFestivalPage from './pages/Anyfestival';
+import './index.css';
 
 function App() {
   const [user, setUser] = useState(null);
