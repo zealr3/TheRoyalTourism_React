@@ -1,50 +1,105 @@
-import 'react';
-import '../styles/Footer.css'; // Import the Footer's CSS file
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import "../styles/Footer.css"; // Import your CSS file for styling
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        {/* Quick Links Section */}
-        <div className="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/destinations/Domesticdestinations">Explore Domestic</a></li>
-            <li><a href="/destinations/InternationalDestination">Explore International</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-          </ul>
+    <footer className="text-center text-lg-start" style={{ backgroundColor: "#EEE8F6" }}>
+      {/* Section: Social Media */}
+      <section className="d-flex container justify-content-lg-between p-4">
+        {/* Left: Contact Info */}
+        <div className="ms-2 d-none d-lg-block">
+          <i className="bi bi-headset main-text fs-3" style={{ fontWeight: 500 }}></i>
+          <span style={{ color: "#05073D", fontWeight: 500 }}>
+            Speak to our expert Travel Guide{" "}
+            <span className="main-text">1-234-567-8901</span>
+          </span>
         </div>
 
-        {/* Contact Section */}
-        <div className="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: support@royaltourism.com</p>
-          <p>Phone: +91 98765 43210</p>
-          <p>Location: Mumbai, India</p>
+        {/* Right: Social Media Links */}
+        <div className="d-flex mt-3">
+          <span>Follow Us : &nbsp;</span>
+          <a href="#" className="me-4">
+            <i className="bi bi-facebook text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+          </a>
+          <a href="#" className="me-4">
+            <i className="bi bi-twitter text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+          </a>
+          <a href="#" className="me-4">
+            <i className="bi bi-instagram text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+          </a>
+          <a href="#" className="me-4">
+            <i className="bi bi-linkedin text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+          </a>
         </div>
+      </section>
 
-        {/* Social Media Section */}
-        <div className="footer-section">
-          <h3>Follow Us</h3>
-          <div className="social-icons">
-            <a href="#" className="social-icon"><FaFacebook /></a>
-            <a href="#" className="social-icon"><FaInstagram /></a>
-            <a href="#" className="social-icon"><FaTwitter /></a>
+      <hr className="container" style={{ color: "#8697C3" }} />
+
+      {/* Section: Links & Contact */}
+      <section>
+        <div className="container text-center text-md-start mt-5">
+          <div className="row mt-3">
+            {/* About */}
+            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 className="text-capitalize main-text fw-bold mb-4">The Royal Tourism</h6>
+              <p className="normal-text">
+                Providing details about international & domestic packages, including famous foods,
+                activities, and places.
+              </p>
+            </div>
+
+            {/* Links */}
+            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 className="text-capitalize fw-bold mb-4 main-text">Links</h6>
+              <p><a href="#!" className="normal-text">Home</a></p>
+              <p><a href="#!" className="normal-text">About Us</a></p>
+              <p><a href="#!" className="normal-text">Contact Us</a></p>
+              <p><a href="#!" className="normal-text">Register</a></p>
+            </div>
+
+            {/* Destinations */}
+            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 className="text-capitalize fw-bold mb-4 main-text">Destinations</h6>
+              <p><a href="#!" className="normal-text">Domestic</a></p>
+              <p><a href="#!" className="normal-text">International</a></p>
+            </div>
+
+            {/* Contact Info */}
+            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 className="text-capitalize fw-bold mb-4 main-text">Contact</h6>
+              <div className="d-flex">
+                <img src="../assets/loation.png" alt="" />
+                <p className="normal-text">
+                  2nd Floor, Tourism Plaza, Balayogi, Paryataka Bhavan, Begumpet, Hyderabad 500016.
+                </p>
+              </div>
+              <div className="d-flex">
+                <i className="bi bi-envelope-fill text-white text-center rounded-pill me-3" style={iconStyle}></i>
+                <p className="normal-text">contact@theroyaltourism.in</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Copyright Section */}
-      <div className="footer-bottom">
-        <p>&copy; {currentYear} The Royal Tourism. All Rights Reserved.</p>
+      <hr className="container" style={{ color: "#8697C3" }} />
+
+      {/* Copyright */}
+      <div className="text-center p-4">
+        Copyrights © 2025 Reserved by{" "}
+        <a href="#" className="fw-bold" style={{ color: "#8C387C" }}>
+          The Royal Tourism.
+        </a>
       </div>
     </footer>
   );
+};
+
+// Common Icon Style
+const iconStyle = {
+  backgroundColor: "#8C387C",
+  paddingTop: "4px",
+  // width: "35px",
+  // height: "35px",
 };
 
 export default Footer;

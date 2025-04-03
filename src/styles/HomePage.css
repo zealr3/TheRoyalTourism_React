@@ -1,9 +1,22 @@
-/* Base styles and resets */
-.home {
-  overflow-x: hidden;
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+  --primery: #8C387C;
+  --blue: #05073D;
+  --darkgreen: #173334;
+  --white: #fff;
+  --black: #000;
+  --heading-txt: #173334;
 }
+
+.main-text {
+  color: #8C387C !important;
+}
+
+.normal-text {
+  color: #05073D !important;
+}
+
+/* Base styles and resets */
+
 
 /* Common container styles */
 .section-container {
@@ -12,160 +25,6 @@
   padding: 0 20px;
 }
 
-
-/* Hero Section - Fixed with proper image display */
-.hero-header {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  background-image: url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg');
-  background-size: cover;
-  background-position: center;
-}
-
-.hero-header-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Added styles for multiple explore buttons */
-/* .explore-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.explore-btn {
-  background-color: #5ACEF9;
-  color: #333;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-} */
-
-.explore-btn:hover {
-  background-color: #48b4df;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.explore-btn.explore-india {
-  background-color: #FF9E44;
-  color: #333;
-}
-
-.explore-btn.explore-india:hover {
-  background-color: #e48a35;
-}/* Simplified floating elements with will-change for better performance */
-.floating-element {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  will-change: transform;
-}
-
-.element-1 {
-  width: 300px;
-  height: 300px;
-  top: -50px;
-  left: -50px;
-}
-
-.element-2 {
-  width: 200px;
-  height: 200px;
-  bottom: 100px;
-  right: 100px;
-}
-
-.element-3 {
-  width: 150px;
-  height: 150px;
-  bottom: -50px;
-  left: 30%;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 0 20px;
-}
-
-.text-container {
-  color: white;
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-title span {
-  color: #5ACEF9;
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-/* Updated button styles to match the new color scheme */
-.explore-btn {
-  background-color: #5ACEF9;
-  color: #333;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-  margin: 10px;
-  text-decoration: none;
-}
-
-.explore-btn:hover {
-  background-color: #48b4df;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Added styles for the second explore button */
-.explore-btn.explore-india {
-  background-color: #FF9E44;
-  color: #333;
-}
-
-.explore-btn.explore-india:hover {
-  background-color: #e48a35;
-}
-
-/* Button container to display buttons side by side */
-.explore-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
 
 /* Plan With Us Section */
 .plan-with-us {
