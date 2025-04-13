@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const DomesticDestination = () => {
   const [destinations, setDestinations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDestinations = async () => {
@@ -23,7 +25,7 @@ const DomesticDestination = () => {
   }, []);
 
   const handleOpen = (destination) => {
-    alert(`Opening details for ${destination.name}`);
+    navigate(`/destination/${destination.did}/packages`);
     // Add your navigation logic here to open the next page
   };
 
@@ -72,7 +74,7 @@ const DomesticDestination = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{destination.name}</h3>
-                <p className="text-gray-600 mb-4">{destination.description}</p>
+                {/* <p className="text-gray-600 mb-4">{destination.description}</p> */}
               </div>
             </div>
           ))}
