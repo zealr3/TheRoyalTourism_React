@@ -1,17 +1,17 @@
-
 const Home = () => {
   // Image URLs for domestic destinations
-  const domesticDestinations = [
-    { name: "Amritsar", url: "https://images.pexels.com/photos/2387871/pexels-photo-2387871.jpeg" },
-    { name: "Andaman", url: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg" },
-    { name: "Coorg", url: "https://images.pexels.com/photos/5208363/pexels-photo-5208363.jpeg" },
+
+  // Domestic places for slider
+  const domesticPlaces = [
+    'Amritsar', 'Andaman', 'coorg', 'Darjeling- Gangtok', 'Delhi', 'goa',
+    'himachal pradesh', 'Jammu & Kashmir', 'kerala', 'Kodaikanal', 'ladakh',
+    'Mysore', 'Ooty', 'Rajasthan', 'Shiridi', 'Tirupathi', 'Wayanad'
   ];
 
   // Image URLs for international destinations
-  const internationalDestinations = [
-    { name: "Bali", url: "https://images.pexels.com/photos/1802255/pexels-photo-1802255.jpeg" },
-    { name: "Bangkok", url: "https://images.pexels.com/photos/1031659/pexels-photo-1031659.jpeg" },
-    { name: "Dubai", url: "https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg" },
+  const internationalPlaces = [
+    'Bali', 'Bangkok', 'Dubai', 'Europe', 'Malaysia', 'Maldives',
+    'Singapore', 'Sri Lanka', 'Thailand', 'Vietnam'
   ];
 
   return (
@@ -21,7 +21,7 @@ const Home = () => {
         <div className="container">
           <div className="row-auto">
             <div className="col-end-8">
-              <h2 className="text-white"> Welcome to <br />The Royal Tourism!</h2>
+              <h2 className="text-white fs-2" style={{ fontWeight: 600 }}> Welcome to <br />The Royal Tourism!</h2>
               <h1 className="text-white"> Journey to Paradise</h1>
               <p className="mb-0 text-white">Uncover the world&apos;s most beautyful destinations and <br />create joyful memories with your loved ones.</p>
               <button className="banner_btn mt-3">Explore</button>
@@ -32,22 +32,31 @@ const Home = () => {
 
       {/* Plan Your Trip Section */}
       <div className="container my-5">
-        <div className="row ">
-          <div className="col-md-6">
-            <img src="/assets/Images/all.png" className="img-fluid" alt="left" />
+        <div className="row container d-flex justify-center  px-5">
+          {/* Image Grid */}
+          <div className="col-md-5 ">
+            <img
+              src="/assets/Images/all.png"
+              className="img-fluid"
+              width={"75%"}
+              alt="left"
+            />
           </div>
-
-          <div className="col-md-6 d-flex flex-column ">
-            <h1 style="font-family:'Freestyle Script';">Let’s Go Together</h1>
-            <h1 className="main-text">Plan Your Trip With Us</h1>
+          <div className="col-md-6 d-flex flex-column">
+            <h1 className="fs-1" style={{ fontFamily: 'Freestyle Script' }}>Let’s Go Together</h1>
+            <h1 className="main-text fs-1">Plan Your Trip With Us</h1>
             <p>
               Explore the world your way! With personalized plans, expert advice, and unbeatable deals,
               we’re here to make your trip memorable and stress-free. Let’s begin your journey now!
             </p>
 
-            <div className="d-flex align-items-start mb-3 mt-5">
-              <div className="me-3 mt-3">
-                <img src="/assets/Images/map.svg" className="img-fluid" alt="guide" />
+            <div className="d-flex align-items-start mb-2 mt-5">
+              <div className="me-3 mt-1">
+                <img
+                  src="/assets/Images/map.svg"
+                  className="img-fluid"
+                  alt="guide"
+                />
               </div>
               <div>
                 <h4 className="main-text mb-1">Exclusive Trip</h4>
@@ -58,9 +67,13 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="d-flex align-items-start ">
-              <div className="me-3 mt-3">
-                <img src="/assets/Images/guide.svg" className="img-fluid" alt="guide" />
+            <div className="d-flex align-items-start mt-4">
+              <div className="me-3 mt-1">
+                <img
+                  src="/assets/Images/guide.svg"
+                  className="img-fluid"
+                  alt="guide"
+                />
               </div>
               <div>
                 <h4 className="main-text mb-1">Professional Guide</h4>
@@ -70,43 +83,58 @@ const Home = () => {
                 </p>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
 
+
+
       {/* Quality Section */}
-      <div className="container mx-auto px-4 my-16">
-        <h1 className="text-3xl md:text-4xl font-bold text-blue-600 text-center mb-8">
-          Give them quality. Thats the best kind of advertising
+      <div className="container mx-auto px-4 my-8">
+        <h1 className="text-3xl md:text-4xl font-bold main-text text-center mb-6">
+          Give them quality. That’s the best kind of advertising
         </h1>
 
         <div className="flex flex-col md:flex-row gap-6">
           <div className="w-full md:w-1/2">
-            <div className="rounded-xl h-64 bg-cover bg-center p-6 flex flex-col justify-between"
-              style={{ backgroundImage: "url('https://images.pexels.com/photos/1020016/pexels-photo-1020016.jpeg')" }}>
-              <h2 className="text-2xl font-bold text-blue-100">Explore the World!</h2>
+            <div
+              className="rounded-2xl h-64 bg-cover bg-center p-4 flex flex-col justify-between"
+              style={{
+                backgroundImage: "url('/assets/Images/internationl.png')"
+              }}
+            >
+              <h2 className="text-2xl font-bold" style={{ color: '#D1E8FF' }}>
+                Explore the World!
+              </h2>
               <div>
-                <h5 className="text-white text-xl mb-4">
+                <h5 className="text-white text-lg py-3">
                   Starting at ₹10,999/- <br />
                   Unmissable International Deals.
                 </h5>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">
+                <button className="inter_btn font-bold py-2 px-6 rounded-full mb-3">
                   Explore Now
                 </button>
               </div>
             </div>
           </div>
+
           <div className="w-full md:w-1/2">
-            <div className="rounded-xl h-64 bg-cover bg-center p-6 flex flex-col justify-between"
-              style={{ backgroundImage: "url('https://images.pexels.com/photos/1482193/pexels-photo-1482193.jpeg')" }}>
-              <h2 className="text-2xl font-bold text-pink-200">Discover India!</h2>
+            <div
+              className="rounded-2xl h-64 bg-cover bg-center p-4 flex flex-col justify-between"
+              style={{
+                backgroundImage: "url('/assets/Images/domestic.png')"
+              }}
+            >
+              <h2 className="text-2xl font-bold" style={{ color: '#C559B1' }}>
+                Discover India!
+              </h2>
               <div>
-                <h5 className="text-purple-800 text-xl mb-4">
+                <h5 className="text-lg py-3" style={{ color: '#8C387C' }}>
                   Starting at ₹4,999/- <br />
                   Best Domestic Getaways.
                 </h5>
-                <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full">
+                <button className="domestic_btn font-bold py-2 px-6 rounded-full mb-3">
                   Explore Now
                 </button>
               </div>
@@ -115,70 +143,108 @@ const Home = () => {
         </div>
       </div>
 
+
       {/* Explore India Section */}
-      <div className="container mx-auto px-4 my-16">
-        <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-7/12 mb-8 md:mb-0">
-            <h1 className="text-3xl italic font-light">Best Recommended Places of India</h1>
-            <h1 className="text-4xl font-bold text-blue-600">Explore India with Royal Tourism</h1>
-            <p className="mt-2 text-gray-700">
-              Discover Indias rich heritage and vibrant culture <br /> with Royal Tourism – your gateway
-              to <br /> unforgettable experiences.
+      <div className="container mx-auto my-10 px-4">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="md:w-7/12">
+            <h1 style={{ fontFamily: 'Freestyle Script' }} className="text-4xl">
+              Best Recommended Places of India
+            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold main-text mt-2">
+              Explore India with Royal Tourism
+            </h1>
+            <p className="mt-4 text-gray-600">
+              Discover India&apos;s rich heritage and vibrant culture <br />
+              with Royal Tourism – your gateway to <br />
+              unforgettable experiences
             </p>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full mt-4 flex items-center">
+            <button className="mt-6 domestic_btn font-bold py-2 px-6 rounded-full flex items-center">
               View All
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>
-
-          <div className="w-full md:w-5/12 overflow-hidden">
-            <div className="flex overflow-x-auto pb-4 space-x-4">
-              {domesticDestinations.map((destination, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <img src={destination.url} alt={destination.name} className="w-32 h-32 object-cover rounded-lg" />
-                  <p className="text-center mt-1 text-sm">{destination.name}</p>
-                </div>
-              ))}
+          <div className="md:w-5/12">
+            <div className="overflow-hidden">
+              <div className="flex animate-slide whitespace-nowrap">
+                {domesticPlaces.map((place, index) => (
+                  <div key={index} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/assets/Images/Domestic/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+                {domesticPlaces.map((place, index) => (
+                  <div key={`dup-${index}`} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/Images/Domestic/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+
+
       {/* Explore International Section */}
       <div className="container mx-auto px-4 my-16">
-        <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-7/12 mb-8 md:mb-0">
-            <h1 className="text-3xl italic font-light">Best International Places for you</h1>
-            <h1 className="text-4xl font-bold text-blue-600">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="md:w-7/12">
+            <h1 style={{ fontFamily: 'Freestyle Script' }} className="text-4xl">
+              Best International Places for you
+            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold main-text">
               International tour with Royal Tourism
             </h1>
-            <p className="mt-2 text-gray-700">
-              Discover Worlds heritage and vibrant culture <br /> with Royal Tourism – your
-              gateway to <br /> unforgettable experiences.
+            <p className="mt-4 text-gray-600">
+              Discover Worlds heritage and vibrant culture <br />
+              with Royal Tourism – your gateway to <br />
+              unforgettable experiences
             </p>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full mt-4 flex items-center">
+            <button className="mt-6 domestic_btn font-bold py-2 px-6 rounded-full flex items-center">
               View All
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>
-
-          <div className="w-full md:w-5/12 overflow-hidden">
-            <div className="flex overflow-x-auto pb-4 space-x-4">
-              {internationalDestinations.map((destination, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <img src={destination.url} alt={destination.name} className="w-32 h-32 object-cover rounded-lg" />
-                  <p className="text-center mt-1 text-sm">{destination.name}</p>
-                </div>
-              ))}
+          <div className="md:w-5/12">
+            <div className="overflow-hidden">
+              <div className="flex animate-slide whitespace-nowrap">
+                {internationalPlaces.map((place, index) => (
+                  <div key={index} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/assets/Images/International/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+                {internationalPlaces.map((place, index) => (
+                  <div key={`dup-${index}`} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/Images/International/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   );
 };
 

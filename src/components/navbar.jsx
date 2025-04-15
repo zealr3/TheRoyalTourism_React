@@ -23,7 +23,7 @@ const Navbar = ({ user, setUser }) => {
       <nav className="navbar">
         <div className="logo d-flex gap-2">
           <div>
-            <img src="/public/assets/logo.svg" alt="" />
+            <img src="/assets/logo.svg" alt="" />
           </div>
           <h4 className="mt-2">The Royal Tourism</h4>
         </div>

@@ -66,15 +66,25 @@ const Footer = () => {
             {/* Contact Info */}
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <h6 className="text-capitalize fw-bold mb-4 main-text">Contact</h6>
-              <div className="d-flex">
-                <img src="../assets/loation.png" alt="" />
+              <div className="d-flex gap-2 ">
+              <img
+                  src="/assets/Images/location.png"
+                  style={{ width: 32, height: 34 }}
+                  className="mt-3"
+                  alt="guide"
+                />
                 <p className="normal-text">
                   2nd Floor, Tourism Plaza, Balayogi, Paryataka Bhavan, Begumpet, Hyderabad 500016.
                 </p>
               </div>
-              <div className="d-flex">
-                <i className="bi bi-envelope-fill text-white text-center rounded-pill me-3" style={iconStyle}></i>
-                <p className="normal-text">contact@theroyaltourism.in</p>
+              <div className="d-flex gap-2 mt-3">
+              <img
+                  src="/assets/Images/mail.png"
+                  className=""
+                  style={{ width: 32, height: 34 }}
+                  alt="guide"
+                />
+                <p className="normal-text mt-1">contact@theroyaltourism.in</p>
               </div>
             </div>
           </div>
