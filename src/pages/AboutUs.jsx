@@ -117,9 +117,9 @@ const AboutUs = () => {
       </div>
 
       {/* Why Choose Us Section */}
-      <div className="py-16 px-4" style={{ backgroundColor: "#F3EAF3" }}>
-        <div className="max-w-6x2 mx-auto flex flex-col md:flex-row items-center gap-8">
-          <div className="md:w-1/2">
+      <div className="py-16 px-4 " style={{ backgroundColor: "#EEE8F6" }}>
+        <div className="max-w-6x2 mx-auto  flex flex-col md:flex-row items-center gap-8">
+          <div className="md:w-1/2 ml-5">
             <img
               src="/assets/Images/why_choose.png"
               alt="Why Choose Us"
