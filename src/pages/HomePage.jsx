@@ -1,108 +1,134 @@
+import '../styles/Style.css';
+
 const Home = () => {
   // Image URLs for domestic destinations
-  const domesticDestinations = [
-    { name: "Amritsar", url: "https://images.pexels.com/photos/2387871/pexels-photo-2387871.jpeg" },
-    { name: "Andaman", url: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg" },
-    { name: "Coorg", url: "https://images.pexels.com/photos/5208363/pexels-photo-5208363.jpeg" },
+
+  // Domestic places for slider
+  const domesticPlaces = [
+    'Amritsar', 'Andaman', 'coorg', 'Darjeling- Gangtok', 'Delhi', 'goa',
+    'himachal pradesh', 'Jammu & Kashmir', 'kerala', 'Kodaikanal', 'ladakh',
+    'Mysore', 'Ooty', 'Rajasthan', 'Shiridi', 'Tirupathi', 'Wayanad'
   ];
 
   // Image URLs for international destinations
-  const internationalDestinations = [
-    { name: "Bali", url: "https://images.pexels.com/photos/1802255/pexels-photo-1802255.jpeg" },
-    { name: "Bangkok", url: "https://images.pexels.com/photos/1031659/pexels-photo-1031659.jpeg" },
-    { name: "Dubai", url: "https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg" },
+  const internationalPlaces = [
+    'Bali', 'Bangkok', 'Dubai', 'Europe', 'Malaysia', 'Maldives',
+    'Singapore', 'Sri Lanka', 'Thailand', 'Vietnam'
   ];
 
   return (
     <div>
       {/* Hero Banner Section */}
-      <div className="w-full bg-cover bg-fixed bg-center h-screen flex items-center" 
-           style={{backgroundImage: "url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg')"}}>
-        <div className="container mx-auto px-4">
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-6/12">
-            <h2 className="text-white text-3xl md:text-4xl font-bold">Welcome to <br />The Royal Tourism!</h2>
-            <h1 className="text-white text-4xl md:text-5xl font-extrabold">Journey to Paradise</h1>
-            <p className="text-white mt-2">Uncover the worlds most beautiful destinations and <br />create joyful memories with your loved ones.</p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full mt-3">Explore</button>
+      <div className="prod_title" >
+        <div className="container">
+          <div className="row-auto">
+            <div className="col-end-8">
+              <h2 className="text-white fs-2" style={{ fontWeight: 600 }}> Welcome to <br />The Royal Tourism!</h2>
+              <h1 className="text-white"> Journey to Paradise</h1>
+              <p className="mb-0 text-white">Uncover the world&apos;s most beautyful destinations and <br />create joyful memories with your loved ones.</p>
+              <button className="banner_btn mt-3">Explore</button>
+            </div>
           </div>
         </div>
       </div>
 
+      
       {/* Plan Your Trip Section */}
-      <div className="container mx-auto px-4 my-12">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="w-full md:w-1/2 mb-6 md:mb-0">
-            <img src="https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg" className="w-full rounded-lg" alt="Travel Planning" />
+      <div className="container mx-auto my-10 px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
+          {/* Image */}
+          <div className="w-full lg:w-5/12 flex justify-center">
+            <img
+              src="/assets/Images/all.png"
+              className="w-3/4 lg:w-full h-auto object-cover"
+              alt="Plan your trip"
+            />
           </div>
-          <div className="w-full md:w-1/2 md:pl-8">
-            <h1 className="text-3xl italic font-light">Lets Go Together</h1>
-            <h1 className="text-4xl font-bold text-blue-600">Plan Your Trip With Us</h1>
-            <p className="mt-2 text-gray-700">
+          {/* Text Content */}
+          <div className="w-full lg:w-7/12 flex flex-col justify-center">
+            <h1 className="text-5xl font-[Freestyle Script] text-gray-800">Let’s Go Together</h1>
+            <h1 className="text-4xl font-bold text-[#8C387C] mt-2">Plan Your Trip With Us</h1>
+            <p className="text-gray-600 mt-4">
               Explore the world your way! With personalized plans, expert advice, and unbeatable deals,
-              were here to make your trip memorable and stress-free. Lets begin your journey now!
+              we’re here to make your trip memorable and stress-free. Let’s begin your journey now!
             </p>
-
-            <div className="flex mt-8 mb-6">
-              <div className="mr-4 mt-1">
-                <img src="https://cdn-icons-png.flaticon.com/512/3778/3778146.png" className="w-12 h-12" alt="Map" />
-              </div>
+            <div className="flex items-start mt-8">
+              <img
+                src="/assets/Images/map.svg"
+                className="w-10 h-10 mr-4"
+                alt="Map icon"
+              />
               <div>
-                <h4 className="text-xl font-bold text-blue-600 mb-1">Exclusive Trip</h4>
-                <p className="text-gray-700">
-                  Tailored adventures with unique destinations, and premium
-                  experiences—your dream journey starts here!
+                <h4 className="text-[#8C387C] font-semibold text-xl">Exclusive Trip</h4>
+                <p className="text-gray-600">
+                  Tailored adventures with unique destinations, and premium experiences—your dream journey starts here!
                 </p>
               </div>
             </div>
-
-            <div className="flex">
-              <div className="mr-4 mt-1">
-                <img src="https://cdn-icons-png.flaticon.com/512/1995/1995450.png" className="w-12 h-12" alt="Guide" />
-              </div>
+            <div className="flex items-start mt-6">
+              <img
+                src="/assets/Images/guide.svg"
+                className="w-10 h-10 mr-4"
+                alt="Guide icon"
+              />
               <div>
-                <h4 className="text-xl font-bold text-blue-600 mb-1">Professional Guide</h4>
-                <p className="text-gray-700">
-                  Travel worry-free with expert guides offering insider tips and local knowledge
-                  for a seamless adventure.
+                <h4 className="text-[#8C387C] font-semibold text-xl">Professional Guide</h4>
+                <p className="text-gray-600">
+                  Travel worry-free with expert guides offering insider tips and local knowledge for a seamless adventure.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
 
       {/* Quality Section */}
-      <div className="container mx-auto px-4 my-16">
-        <h1 className="text-3xl md:text-4xl font-bold text-blue-600 text-center mb-8">
-          Give them quality. Thats the best kind of advertising
+      <div className="container mx-auto px-4 my-8">
+        <h1 className="text-3xl md:text-4xl font-bold main-text text-center mb-6">
+          Give them quality. That’s the best kind of advertising
         </h1>
 
         <div className="flex flex-col md:flex-row gap-6">
           <div className="w-full md:w-1/2">
-            <div className="rounded-xl h-64 bg-cover bg-center p-6 flex flex-col justify-between"
-                 style={{backgroundImage: "url('https://images.pexels.com/photos/1020016/pexels-photo-1020016.jpeg')"}}>
-              <h2 className="text-2xl font-bold text-blue-100">Explore the World!</h2>
+            <div
+              className="rounded-2xl h-64 bg-cover bg-center p-4 flex flex-col justify-between"
+              style={{
+                backgroundImage: "url('/assets/Images/internationl.png')"
+              }}
+            >
+              <h2 className="text-2xl font-bold" style={{ color: '#D1E8FF' }}>
+                Explore the World!
+              </h2>
               <div>
-                <h5 className="text-white text-xl mb-4">
+                <h5 className="text-white text-lg py-3">
                   Starting at ₹10,999/- <br />
                   Unmissable International Deals.
                 </h5>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">
+                <button className="inter_btn font-bold py-2 px-6 rounded-full mb-3">
                   Explore Now
                 </button>
               </div>
             </div>
           </div>
+
           <div className="w-full md:w-1/2">
-            <div className="rounded-xl h-64 bg-cover bg-center p-6 flex flex-col justify-between"
-                 style={{backgroundImage: "url('https://images.pexels.com/photos/1482193/pexels-photo-1482193.jpeg')"}}>
-              <h2 className="text-2xl font-bold text-pink-200">Discover India!</h2>
+            <div
+              className="rounded-2xl h-64 bg-cover bg-center p-4 flex flex-col justify-between"
+              style={{
+                backgroundImage: "url('/assets/Images/domestic.png')"
+              }}
+            >
+              <h2 className="text-2xl font-bold" style={{ color: '#C559B1' }}>
+                Discover India!
+              </h2>
               <div>
-                <h5 className="text-purple-800 text-xl mb-4">
+                <h5 className="text-lg py-3" style={{ color: '#8C387C' }}>
                   Starting at ₹4,999/- <br />
                   Best Domestic Getaways.
                 </h5>
-                <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full">
+                <button className="domestic_btn font-bold py-2 px-6 rounded-full mb-3">
                   Explore Now
                 </button>
               </div>
@@ -111,70 +137,108 @@ const Home = () => {
         </div>
       </div>
 
+
       {/* Explore India Section */}
-      <div className="container mx-auto px-4 my-16">
-        <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-7/12 mb-8 md:mb-0">
-            <h1 className="text-3xl italic font-light">Best Recommended Places of India</h1>
-            <h1 className="text-4xl font-bold text-blue-600">Explore India with Royal Tourism</h1>
-            <p className="mt-2 text-gray-700">
-              Discover Indias rich heritage and vibrant culture <br /> with Royal Tourism – your gateway
-              to <br /> unforgettable experiences.
+      <div className="container mx-auto my-10 px-4">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="md:w-7/12">
+            <h1 style={{ fontFamily: 'Freestyle Script' }} className="text-4xl">
+              Best Recommended Places of India
+            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold main-text mt-2">
+              Explore India with Royal Tourism
+            </h1>
+            <p className="mt-4 text-gray-600">
+              Discover India&apos;s rich heritage and vibrant culture <br />
+              with Royal Tourism – your gateway to <br />
+              unforgettable experiences
             </p>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full mt-4 flex items-center">
-              View All 
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button className="mt-6 domestic_btn font-bold py-2 px-6 rounded-full flex items-center">
+              View All
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>
-
-          <div className="w-full md:w-5/12 overflow-hidden">
-            <div className="flex overflow-x-auto pb-4 space-x-4">
-              {domesticDestinations.map((destination, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <img src={destination.url} alt={destination.name} className="w-32 h-32 object-cover rounded-lg" />
-                  <p className="text-center mt-1 text-sm">{destination.name}</p>
-                </div>
-              ))}
+          <div className="md:w-5/12">
+            <div className="overflow-hidden">
+              <div className="flex animate-slide whitespace-nowrap">
+                {domesticPlaces.map((place, index) => (
+                  <div key={index} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/assets/Images/Domestic/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+                {domesticPlaces.map((place, index) => (
+                  <div key={`dup-${index}`} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/Images/Domestic/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+
+
       {/* Explore International Section */}
       <div className="container mx-auto px-4 my-16">
-        <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-7/12 mb-8 md:mb-0">
-            <h1 className="text-3xl italic font-light">Best International Places for you</h1>
-            <h1 className="text-4xl font-bold text-blue-600">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="md:w-7/12">
+            <h1 style={{ fontFamily: 'Freestyle Script' }} className="text-4xl">
+              Best International Places for you
+            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold main-text">
               International tour with Royal Tourism
             </h1>
-            <p className="mt-2 text-gray-700">
-              Discover Worlds heritage and vibrant culture <br /> with Royal Tourism – your
-              gateway to <br /> unforgettable experiences.
+            <p className="mt-4 text-gray-600">
+              Discover Worlds heritage and vibrant culture <br />
+              with Royal Tourism – your gateway to <br />
+              unforgettable experiences
             </p>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full mt-4 flex items-center">
-              View All 
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button className="mt-6 domestic_btn font-bold py-2 px-6 rounded-full flex items-center">
+              View All
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>
-
-          <div className="w-full md:w-5/12 overflow-hidden">
-            <div className="flex overflow-x-auto pb-4 space-x-4">
-              {internationalDestinations.map((destination, index) => (
-                <div key={index} className="flex-shrink-0">
-                  <img src={destination.url} alt={destination.name} className="w-32 h-32 object-cover rounded-lg" />
-                  <p className="text-center mt-1 text-sm">{destination.name}</p>
-                </div>
-              ))}
+          <div className="md:w-5/12">
+            <div className="overflow-hidden">
+              <div className="flex animate-slide whitespace-nowrap">
+                {internationalPlaces.map((place, index) => (
+                  <div key={index} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/assets/Images/International/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+                {internationalPlaces.map((place, index) => (
+                  <div key={`dup-${index}`} className="flex-shrink-0 mx-2">
+                    <img
+                      src={`/Images/International/${place}.png`}
+                      alt={place}
+                      className="w-48 h-60 object-cover rounded-lg"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   );
 };
 

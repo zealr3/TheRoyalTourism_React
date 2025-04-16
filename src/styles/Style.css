@@ -145,50 +145,6 @@ a {
 
 
 
-
-/* sliding start */
-.image-slider {
-    overflow: clip;
-    width: 625px;
-    /*    position: relative;*/
-}
-
-.slide-track {
-    display: flex;
-    animation: scroll 40s linear infinite;
-}
-
-.slide {
-    margin-right: 35px;
-    min-width: 250px;
-    border-radius: 15px;
-    /*    overflow: hidden;*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-}
-
-    .slide img {
-        width: 100%;
-        border-radius: 15px;
-    }
-
-    .slide:hover {
-        transform: scale(1.05);
-    }
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-/* sliding end */
-
-
 /* why choose us start */
 
 .why-choose-us .choose-row {
@@ -323,7 +279,7 @@ a {
     min-height: 550px;
     display: flex;
     align-items: center;
-    background-image: url('/assets/home_bg.png');
+    background-image: url('/assets/Images/home_banner.png');
     background-size:cover; 
     background-attachment:fixed;
 }

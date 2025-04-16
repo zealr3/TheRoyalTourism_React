@@ -4,6 +4,7 @@ import { useParams, useLocation } from "react-router-dom";
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
+  const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { destinationId } = useParams();
@@ -13,23 +14,29 @@ const Packages = () => {
   const destinationName = location.state?.destinationName || "Destination";
 
   useEffect(() => {
-    const fetchPackages = async () => {
+    const fetchData = async () => {
       if (!destinationId) {
         setError("No destination ID provided");
         setLoading(false);
         return;
       }
       try {
-        const response = await axios.get(`http://localhost:5000/api/packages/by-destination/${destinationId}`);
-        setPackages(response.data);
+        // Fetch packages
+        const packageResponse = await axios.get(`http://localhost:5000/api/packages/by-destination/${destinationId}`);
+        setPackages(packageResponse.data);
+
+        // Fetch foods
+        const foodResponse = await axios.get(`http://localhost:5000/api/foods?did=${destinationId}`);
+        setFoods(foodResponse.data || []);
+
         setLoading(false);
       } catch (err) {
-        console.error("Error fetching packages:", err);
-        setError("Failed to load packages. Please try again.");
+        console.error("Error fetching data:", err);
+        setError("Failed to load data. Please try again.");
         setLoading(false);
       }
     };
-    fetchPackages();
+    fetchData();
   }, [destinationId]);
 
   if (loading) return <div className="flex justify-center items-center h-64 text-xl font-medium">Loading...</div>;
@@ -75,6 +82,37 @@ const Packages = () => {
                   <p className="text-gray-600 mb-2">{pkg.description}</p>
                   <p className="text-purple-800 font-semibold mb-2">Price: ₹{pkg.price}</p>
                   <p className="text-gray-600">Duration: {pkg.duration}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Food Section */}
+      <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold mb-12 text-center text-purple-800">Local Cuisine</h2>
+        
+        {foods.length === 0 ? (
+          <div className="text-center text-gray-600">No foods available for this destination.</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {foods.map(food => (
+              <div 
+                key={food.fid} 
+                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-56 overflow-hidden">
+                  <img
+                    src={food.fimg || "/api/placeholder/400/300"}
+                    alt={food.fdetail}
+                    className="w-full h-full object-cover"
+                    crossOrigin="anonymous"
+                    onError={(e) => (e.target.src = "/api/placeholder/400/300")}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{food.fdetail}</h3>
                 </div>
               </div>
             ))}
