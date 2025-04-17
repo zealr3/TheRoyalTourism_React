@@ -12,6 +12,7 @@ import InternationalDestination from './pages/Internationaldestination';
 import AnyFestivalPage from './pages/Anyfestival';
 import Packages from './pages/package';
 import './index.css';
+import PackageDetails from './pages/packagedetails';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/Destinations/Domesticdestinations" element={<DomesticDestinations />} />
         <Route path="/Destinations/InternationalDestination" element={<InternationalDestination />} />
+        <Route path="/packages/:id" element={<PackageDetails />} />
         <Route path="/destination/:destinationId/packages" element={<Packages />} /> {/* Updated parameter name */}
         <Route path="/Anyfestival" element={<AnyFestivalPage />} />
       </Routes>

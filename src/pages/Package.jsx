@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
@@ -8,17 +8,18 @@ const Packages = () => {
   const [activities, setActivities] = useState([]);
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const { destinationId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate(); // Added for back navigation
 
-  const heroImage = location.state?.heroImage || "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg";
-  const destinationName = location.state?.destinationName || "Destination";
+  const heroImage = location.state?.heroImage || 'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg';
+  const destinationName = location.state?.destinationName || 'Destination';
 
   useEffect(() => {
     const fetchData = async () => {
       if (!destinationId) {
-        setError("No destination ID provided");
+        setError('No destination ID provided');
         setLoading(false);
         return;
       }
@@ -39,13 +40,18 @@ const Packages = () => {
 
         setLoading(false);
       } catch (err) {
-        console.error("Error fetching data:", err.response?.data || err.message);
+        console.error('Error fetching data:', err.response?.data || err.message);
         setError(`Failed to load data: ${err.response?.data?.error || err.message}`);
         setLoading(false);
       }
     };
     fetchData();
   }, [destinationId]);
+
+  // Function to navigate back
+  const handleBack = () => {
+    navigate(-1); // Go back to the previous page
+  };
 
   if (loading) return <div className="flex justify-center items-center h-64 text-xl font-medium">Loading...</div>;
   if (error) return <div className="flex justify-center items-center h-64 text-red-600">{error}</div>;
@@ -58,6 +64,23 @@ const Packages = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-4">
+          {/* Back Arrow Button */}
+          <button
+            onClick={handleBack}
+            className="absolute top-4 left-4 flex items-center text-white bg-purple hover:bg-opacity-90 rounded-full p-2 transition-colors duration-200"
+            aria-label="Go back"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="ml-2 text-sm font-medium">Back</span>
+          </button>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">{destinationName}</h1>
           <p className="text-xl text-center">Find your perfect getaway!</p>
         </div>
@@ -65,22 +88,21 @@ const Packages = () => {
 
       <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-purple-800">Available Packages</h2>
-        
         {packages.length === 0 ? (
           <div className="text-center text-gray-600">No packages available for this destination.</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {packages.map(pkg => (
-              <div 
-                key={pkg.id} 
+            {packages.map((pkg) => (
+              <div
+                key={pkg.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-56 overflow-hidden">
                   <img
-                    src={pkg.image || "https://via.placeholder.com/400x300"}
+                    src={pkg.image || 'https://via.placeholder.com/400x300'}
                     alt={pkg.name}
                     className="w-full h-full object-cover"
-                    onError={(e) => (e.target.src = "https://via.placeholder.com/400x300")}
+                    onError={(e) => (e.target.src = 'https://via.placeholder.com/400x300')}
                   />
                 </div>
                 <div className="p-6">
@@ -89,7 +111,8 @@ const Packages = () => {
                   <p className="text-purple-800 font-semibold mb-4">Price: ₹{pkg.price}</p>
                   <Link
                     to={`/packages/${pkg.id}`}
-                    className="inline-block bg-purple-800 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition-colors"
+                    state={{ pkg }}
+                    className="inline-block  text-white py-2 px-4 rounded-lg  transition-colors"
                   >
                     View Details
                   </Link>
@@ -102,22 +125,21 @@ const Packages = () => {
 
       <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-purple-800">Local Cuisine</h2>
-        
         {foods.length === 0 ? (
           <div className="text-center text-gray-600">No foods available for this destination.</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {foods.map(food => (
-              <div 
-                key={food.fid} 
+            {foods.map((food) => (
+              <div
+                key={food.fid}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-56 overflow-hidden">
                   <img
-                    src={food.fimg || "https://via.placeholder.com/400x300"}
+                    src={food.fimg || 'https://via.placeholder.com/400x300'}
                     alt={food.fdetail}
                     className="w-full h-full object-cover"
-                    onError={(e) => (e.target.src = "https://via.placeholder.com/400x300")}
+                    onError={(e) => (e.target.src = 'https://via.placeholder.com/400x300')}
                   />
                 </div>
                 <div className="p-6">
@@ -131,22 +153,21 @@ const Packages = () => {
 
       <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-purple-800">Activities</h2>
-        
         {activities.length === 0 ? (
           <div className="text-center text-gray-600">No activities available for this destination.</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activities.map(activity => (
-              <div 
-                key={activity.aid} 
+            {activities.map((activity) => (
+              <div
+                key={activity.aid}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-56 overflow-hidden">
                   <img
-                    src={activity.aimg || "https://via.placeholder.com/400x300"}
+                    src={activity.aimg || 'https://via.placeholder.com/400x300'}
                     alt={activity.aactivity}
                     className="w-full h-full object-cover"
-                    onError={(e) => (e.target.src = "https://via.placeholder.com/400x300")}
+                    onError={(e) => (e.target.src = 'https://via.placeholder.com/400x300')}
                   />
                 </div>
                 <div className="p-6">
@@ -163,22 +184,21 @@ const Packages = () => {
 
       <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-purple-800">Places to Visit</h2>
-        
         {places.length === 0 ? (
           <div className="text-center text-gray-600">No places available for this destination.</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {places.map(place => (
-              <div 
-                key={place.pl_id} 
+            {places.map((place) => (
+              <div
+                key={place.pl_id}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-56 overflow-hidden">
                   <img
-                    src={place.pl_img || "https://via.placeholder.com/400x300"}
+                    src={place.pl_img || 'https://via.placeholder.com/400x300'}
                     alt="Place"
                     className="w-full h-full object-cover"
-                    onError={(e) => (e.target.src = "https://via.placeholder.com/400x300")}
+                    onError={(e) => (e.target.src = 'https://via.placeholder.com/400x300')}
                   />
                 </div>
                 <div className="p-6">
