@@ -1,3 +1,5 @@
+import '../styles/Style.css';
+
 const Home = () => {
   // Image URLs for domestic destinations
 
@@ -30,60 +32,52 @@ const Home = () => {
         </div>
       </div>
 
+      
       {/* Plan Your Trip Section */}
-      <div className="container my-5">
-        <div className="row container d-flex justify-center  px-5">
-          {/* Image Grid */}
-          <div className="col-md-5 ">
+      <div className="container mx-auto my-10 px-4" style={{paddingInline: "5rem"}} >
+        <div className="flex flex-col lg:flex-row items-center gap-8">
+          {/* Image */}
+          <div className="w-full lg:w-5/12 flex justify-center">
             <img
               src="/assets/Images/all.png"
-              className="img-fluid"
-              width={"75%"}
-              alt="left"
+              className="w-3/4 lg:w-full h-auto object-cover"
+              alt="Plan your trip"
             />
           </div>
-          <div className="col-md-6 d-flex flex-column">
-            <h1 className="fs-1" style={{ fontFamily: 'Freestyle Script' }}>Let’s Go Together</h1>
-            <h1 className="main-text fs-1">Plan Your Trip With Us</h1>
-            <p>
+          {/* Text Content */}
+          <div className="w-full lg:w-7/12 flex flex-col justify-center">
+            <h1 className="text-5xl font-[Freestyle Script] text-gray-800">Let’s Go Together</h1>
+            <h1 className="text-4xl font-bold text-[#8C387C] mt-2">Plan Your Trip With Us</h1>
+            <p className="text-gray-600 mt-4">
               Explore the world your way! With personalized plans, expert advice, and unbeatable deals,
               we’re here to make your trip memorable and stress-free. Let’s begin your journey now!
             </p>
-
-            <div className="d-flex align-items-start mb-2 mt-5">
-              <div className="me-3 mt-1">
-                <img
-                  src="/assets/Images/map.svg"
-                  className="img-fluid"
-                  alt="guide"
-                />
-              </div>
+            <div className="flex items-start mt-8">
+              <img
+                src="/assets/Images/map.svg"
+                className="w-10 h-10 mr-4"
+                alt="Map icon"
+              />
               <div>
-                <h4 className="main-text mb-1">Exclusive Trip</h4>
-                <p className="mb-0">
-                  Tailored adventures with unique destinations, and premium
-                  experiences-your dream journey starts here!
+                <h4 className="text-[#8C387C] font-semibold text-xl">Exclusive Trip</h4>
+                <p className="text-gray-600">
+                  Tailored adventures with unique destinations, and premium experiences—your dream journey starts here!
                 </p>
               </div>
             </div>
-
-            <div className="d-flex align-items-start mt-4">
-              <div className="me-3 mt-1">
-                <img
-                  src="/assets/Images/guide.svg"
-                  className="img-fluid"
-                  alt="guide"
-                />
-              </div>
+            <div className="flex items-start mt-6">
+              <img
+                src="/assets/Images/guide.svg"
+                className="w-10 h-10 mr-4"
+                alt="Guide icon"
+              />
               <div>
-                <h4 className="main-text mb-1">Professional Guide</h4>
-                <p className="mb-0">
-                  Travel worry-free with expert guides offering insider tips and local knowledge
-                  for a seamless adventure.
+                <h4 className="text-[#8C387C] font-semibold text-xl">Professional Guide</h4>
+                <p className="text-gray-600">
+                  Travel worry-free with expert guides offering insider tips and local knowledge for a seamless adventure.
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -91,7 +85,7 @@ const Home = () => {
 
 
       {/* Quality Section */}
-      <div className="container mx-auto px-4 my-8">
+      <div className="container mx-auto px-4 my-8" style={{paddingInline: "5rem"}}>
         <h1 className="text-3xl md:text-4xl font-bold main-text text-center mb-6">
           Give them quality. That’s the best kind of advertising
         </h1>
@@ -145,7 +139,7 @@ const Home = () => {
 
 
       {/* Explore India Section */}
-      <div className="container mx-auto my-10 px-4">
+      <div className="container mx-auto my-10 px-4" style={{paddingInline: "2rem"}}>
         <div className="flex flex-col md:flex-row gap-6">
           <div className="md:w-7/12">
             <h1 style={{ fontFamily: 'Freestyle Script' }} className="text-4xl">
@@ -196,7 +190,7 @@ const Home = () => {
 
 
       {/* Explore International Section */}
-      <div className="container mx-auto px-4 my-16">
+      <div className="container mx-auto px-4 my-16" style={{paddingInline: "2rem"}}>
         <div className="flex flex-col md:flex-row gap-6">
           <div className="md:w-7/12">
             <h1 style={{ fontFamily: 'Freestyle Script' }} className="text-4xl">

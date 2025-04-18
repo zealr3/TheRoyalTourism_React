@@ -1,115 +1,104 @@
-import "../styles/Footer.css"; // Import your CSS file for styling
 
 const Footer = () => {
   return (
-    <footer className="text-center text-lg-start" style={{ backgroundColor: "#EEE8F6" }}>
+    <footer className="text-center text-lg-start bg-[#EEE8F6]" style={{paddingInline: "5rem"}}>
       {/* Section: Social Media */}
-      <section className="d-flex container justify-content-lg-between p-4">
+      <section className="flex flex-col lg:flex-row container mx-auto justify-between p-4">
         {/* Left: Contact Info */}
-        <div className="ms-2 d-none d-lg-block">
-          <i className="bi bi-headset main-text fs-3" style={{ fontWeight: 500 }}></i>
-          <span style={{ color: "#05073D", fontWeight: 500 }}>
+        <div className="ml-2 hidden lg:flex items-center">
+          <i className="bi bi-headset text-[#8C387C] text-3xl font-medium mr-2"></i>
+          <span className="text-[#05073D] font-medium">
             Speak to our expert Travel Guide{" "}
-            <span className="main-text">1-234-567-8901</span>
+            <span className="text-[#8C387C]">1-234-567-8901</span>
           </span>
         </div>
 
         {/* Right: Social Media Links */}
-        <div className="d-flex mt-3">
-          <span>Follow Us : &nbsp;</span>
-          <a href="#" className="me-4">
-            <i className="bi bi-facebook text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+        <div className="flex items-center mt-3 justify-center lg:justify-end">
+          <span className="mr-2">Follow Us :</span>
+          <a href="#" className="mr-4">
+            <i className="bi bi-facebook text-white text-center p-2 rounded-full bg-[#8C387C] w-9 h-9 flex items-center justify-center"></i>
           </a>
-          <a href="#" className="me-4">
-            <i className="bi bi-twitter text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+          <a href="#" className="mr-4">
+            <i className="bi bi-twitter text-white text-center p-2 rounded-full bg-[#8C387C] w-9 h-9 flex items-center justify-center"></i>
           </a>
-          <a href="#" className="me-4">
-            <i className="bi bi-instagram text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+          <a href="#" className="mr-4">
+            <i className="bi bi-instagram text-white text-center p-2 rounded-full bg-[#8C387C] w-9 h-9 flex items-center justify-center"></i>
           </a>
-          <a href="#" className="me-4">
-            <i className="bi bi-linkedin text-white text-center p-2 rounded-pill" style={iconStyle}></i>
+          <a href="#" className="mr-4">
+            <i className="bi bi-linkedin text-white text-center p-2 rounded-full bg-[#8C387C] w-9 h-9 flex items-center justify-center"></i>
           </a>
         </div>
       </section>
 
-      <hr className="container" style={{ color: "#8697C3" }} />
+      <hr className="container mx-auto border-[#8697C3]" />
 
       {/* Section: Links & Contact */}
       <section>
-        <div className="container text-center text-md-start mt-5">
-          <div className="row mt-3">
+        <div className="container mx-auto text-center md:text-left mt-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
             {/* About */}
-            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 className="text-capitalize main-text fw-bold mb-4">The Royal Tourism</h6>
-              <p className="normal-text">
+            <div className="mb-4 mx-auto">
+              <h6 className="capitalize text-[#8C387C] font-bold mb-4">The Royal Tourism</h6>
+              <p className="text-gray-600">
                 Providing details about international & domestic packages, including famous foods,
                 activities, and places.
               </p>
             </div>
 
             {/* Links */}
-            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-capitalize fw-bold mb-4 main-text">Links</h6>
-              <p><a href="#!" className="normal-text">Home</a></p>
-              <p><a href="#!" className="normal-text">About Us</a></p>
-              <p><a href="#!" className="normal-text">Contact Us</a></p>
-              <p><a href="#!" className="normal-text">Register</a></p>
+            <div className="mb-4 mx-auto">
+              <h6 className="capitalize font-bold mb-4 text-[#8C387C]">Links</h6>
+              <p><a href="Home" className="text-gray-600 hover:underline">Home</a></p>
+              <p><a href="AboutUs" className="text-gray-600 hover:underline">About Us</a></p>
+              <p><a href="Contact" className="text-gray-600 hover:underline">Contact Us</a></p>
+              <p><a href="SignUp" className="text-gray-600 hover:underline">Register</a></p>
             </div>
 
             {/* Destinations */}
-            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-capitalize fw-bold mb-4 main-text">Destinations</h6>
-              <p><a href="#!" className="normal-text">Domestic</a></p>
-              <p><a href="#!" className="normal-text">International</a></p>
+            <div className="mb-4 mx-auto">
+              <h6 className="capitalize font-bold mb-4 text-[#8C387C]">Destinations</h6>
+              <p><a href="/destinations/Domesticdestinations" className="text-gray-600 hover:underline">Domestic</a></p>
+              <p><a href="/destinations/InternationalDestination" className="text-gray-600 hover:underline">International</a></p>
             </div>
 
             {/* Contact Info */}
-            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 className="text-capitalize fw-bold mb-4 main-text">Contact</h6>
-              <div className="d-flex gap-2 ">
-              <img
+            <div className="mb-4 mx-auto">
+              <h6 className="capitalize font-bold mb-4 text-[#8C387C]">Contact</h6>
+              <div className="flex gap-2">
+                <img
                   src="/assets/Images/location.png"
-                  style={{ width: 32, height: 34 }}
-                  className="mt-3"
-                  alt="guide"
+                  className="mt-3 w-8 h-[34px]"
+                  alt="location"
                 />
-                <p className="normal-text">
+                <p className="text-gray-600">
                   2nd Floor, Tourism Plaza, Balayogi, Paryataka Bhavan, Begumpet, Hyderabad 500016.
                 </p>
               </div>
-              <div className="d-flex gap-2 mt-3">
-              <img
+              <div className="flex gap-2 mt-3">
+                <img
                   src="/assets/Images/mail.png"
-                  className=""
-                  style={{ width: 32, height: 34 }}
-                  alt="guide"
+                  className="w-8 h-[34px]"
+                  alt="mail"
                 />
-                <p className="normal-text mt-1">contact@theroyaltourism.in</p>
+                <p className="text-gray-600 mt-1">contact@theroyaltourism.in</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <hr className="container" style={{ color: "#8697C3" }} />
+      <hr className="container mx-auto border-[#8697C3]" />
 
       {/* Copyright */}
       <div className="text-center p-4">
         Copyrights © 2025 Reserved by{" "}
-        <a href="#" className="fw-bold" style={{ color: "#8C387C" }}>
+        <a href="#" className="font-bold text-[#8C387C] hover:underline">
           The Royal Tourism.
         </a>
       </div>
     </footer>
   );
-};
-
-// Common Icon Style
-const iconStyle = {
-  backgroundColor: "#8C387C",
-  paddingTop: "4px",
-  // width: "35px",
-  // height: "35px",
 };
 
 export default Footer;
