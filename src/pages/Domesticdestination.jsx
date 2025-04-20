@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const DomesticDestination = () => {
   const [destinations, setDestinations] = useState([]);
@@ -32,33 +33,41 @@ const DomesticDestination = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="relative h-96 bg-cover bg-center" style={{ backgroundImage: "url('https://images.pexels.com/photos/672630/pexels-photo-672630.jpeg')" }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">Discover Incredible India</h1>
-          <p className="text-xl md:text-2xl text-center max-w-3xl">Explore the diverse beauty of Indias domestic treasures</p>
+      {/* Banner Section */}
+      <div
+        className="h-96 bg-cover bg-center"
+        style={{ backgroundImage: "url('/assets/Images/domestic_banner.png')", backgroundAttachment: "fixed" }}
+      >
+        <div className="container mx-auto px-4 h-full flex items-center">
+          <div className="w-full md:w-8/12 lg:w-8/12 xl:w-8/12 sm:w-full">
+            <h1 className="text-white text-4x1 md:text-5xl font-bold mb-4">
+            Discover the Soul of India
+            </h1>
+            <p className="text-white text-xl md:text-2xl">
+            Immerse yourself in India’s diverse wonders majestic temples, serene<br /> backwaters, vibrant festivals, and timeless heritage. Let
+            </p>
+          </div>
         </div>
       </div>
 
       {/* About India Section */}
-      <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-purple-800">Discover the Soul of India!</h2>
-          <p className="text-lg text-gray-700 max-w-4xl mx-auto">
-            Immerse yourself in Indias diverse wonders—majestic temples, serene backwaters, vibrant festivals, and timeless heritage. Let
-            us guide you through an unforgettable journey that celebrates the essence of this extraordinary land!
+      <section className="container mx-auto px-4 py-16">
+        <div className="p-4 m-3 mt-5 shadow-lg rounded-lg">
+          <h4 className="text-3xl font-bold mb-6 text-[#8C387C] ">Discover the Soul of India</h4>
+          <p className="text-lg text-gray-700  ">
+            Immerse yourself in India’s diverse wonders—majestic temples, serene backwaters, vibrant festivals, and timeless heritage. Let us guide you through an unforgettable journey that celebrates the essence of this extraordinary land!
           </p>
         </div>
-      </div>
+      </section>
 
       {/* Destination Cards */}
-      <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center text-purple-800">Destinations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold mb-12 text-center text-[#8C387C]">Domestic Destinations</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {destinations.map(destination => (
-            <div 
-              key={destination.did} 
+            <Link
+              key={destination.did}
+              to={`/packages/${destination.did}`}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleOpen(destination)}
             >
@@ -70,14 +79,13 @@ const DomesticDestination = () => {
                   crossOrigin="anonymous"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 text-center">
                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{destination.name}</h3>
-                <p className="text-gray-600 mb-4">{destination.description}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

@@ -50,11 +50,18 @@ const Navbar = ({ user, setUser }) => {
 
           {user ? (
             <>
-              <li>
-                <span>Welcome, {user.name}</span>
-              </li>
-              <li>
-                <button onClick={handleLogout} className="logout-button">Logout</button>
+              <li
+                className="dropdown"
+                onMouseEnter={() => setDropdownOpen(true)}
+                onMouseLeave={() => setDropdownOpen(false)}
+              >
+                <span className="dropdown-title">Welcome, {user.name} <i className="bi bi-chevron-down"></i> </span>
+                {dropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <li><Link to="/destinations/Domesticdestinations">Profile</Link></li>
+                    <li><Link  onClick={handleLogout} className="logout-button">Logout</Link></li>
+                  </ul>
+                )}
               </li>
             </>
           ) : (

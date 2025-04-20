@@ -44,38 +44,38 @@ const InternationalDestination = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div 
-        className="relative h-96 bg-cover bg-center" 
-        style={{ backgroundImage: "url('https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg')" }}
+      <div
+        className="h-96 bg-cover bg-center"
+        style={{ backgroundImage: "url('/assets/Images/domestic_banner.png')", backgroundAttachment: "fixed" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Explore the World 🌍
-          </h1>
-          <p className="text-xl md:text-2xl text-center max-w-3xl">
-            Discover stunning international destinations with us!
-          </p>
+        <div className="container mx-auto px-4 h-full flex items-center">
+          <div className="w-full md:w-8/12 lg:w-8/12 xl:w-8/12 sm:w-full">
+            <h1 className="text-white text-4x1 md:text-5xl font-bold mb-4">
+              International Tour Packages <br />Explore the World, Effortlessly
+            </h1>
+            <p className="text-white text-xl md:text-2xl">
+              Let us take care of the journey, while <br />
+              you create memories
+            </p>
+          </div>
         </div>
       </div>
 
       {/* About Section */}
-      <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-purple-800">
-            Journey Beyond Borders!
-          </h2>
-          <p className="text-lg text-gray-700 max-w-4xl mx-auto">
-            Embark on an adventure across continents—experience breathtaking landscapes, 
-            vibrant cultures, and iconic landmarks. Let us take you to the worlds most 
+      <section className="container mx-auto px-4 py-16">
+        <div className="p-4 m-3 mt-5 shadow-lg rounded-lg">
+          <h4 className="text-3xl font-bold mb-6 text-[#8C387C] "> Journey Beyond Borders!</h4>
+          <p className="text-lg text-gray-700  ">
+            Embark on an adventure across continents—experience breathtaking landscapes,
+            vibrant cultures, and iconic landmarks. Let us take you to the worlds most
             captivating destinations!
           </p>
         </div>
-      </div>
+      </section>
 
       {/* Destination Cards */}
       <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center text-purple-800">
+        <h2 className="text-3xl font-bold mb-12 text-center text-[#8C387C]">
           International Destinations
         </h2>
         {destinations.length === 0 ? (
