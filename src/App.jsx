@@ -11,6 +11,8 @@ import DomesticDestinations from './pages/Domesticdestination';
 import InternationalDestination from './pages/Internationaldestination';
 import Account from './pages/Account'; // ✅ Create this new page
 import AnyFestivalPage from './pages/Anyfestival';
+import Packages from './pages/Package';
+import PackageDetails from './pages/packagedetails';
 import './index.css';
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/Destinations/Domesticdestinations" element={<DomesticDestinations />} />
         <Route path="/Destinations/InternationalDestination" element={<InternationalDestination />} />
+        <Route path="/packages/:id" element={<PackageDetails />} />
+        <Route path="/destination/:destinationId/packages" element={<Packages />} /> {/* Updated parameter name */}
         <Route path="/account" element={<Account user={user} setUser={setUser} />} /> {/* New Account Route */}
         <Route path="/Anyfestival" element={<AnyFestivalPage/>} />
       </Routes>

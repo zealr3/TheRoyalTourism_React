@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DomesticDestination = () => {
   const [destinations, setDestinations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDestinations = async () => {
@@ -24,7 +25,7 @@ const DomesticDestination = () => {
   }, []);
 
   const handleOpen = (destination) => {
-    alert(`Opening details for ${destination.name}`);
+    navigate(`/destination/${destination.did}/packages`);
     // Add your navigation logic here to open the next page
   };
 
@@ -65,9 +66,8 @@ const DomesticDestination = () => {
         <h2 className="text-3xl font-bold mb-12 text-center text-[#8C387C]">Domestic Destinations</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {destinations.map(destination => (
-            <Link
+            <div
               key={destination.did}
-              to={`/packages/${destination.did}`}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleOpen(destination)}
             >
@@ -82,7 +82,7 @@ const DomesticDestination = () => {
               <div className="p-6 text-center">
                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{destination.name}</h3>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>

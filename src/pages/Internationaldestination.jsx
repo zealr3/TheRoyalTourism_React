@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const InternationalDestination = () => {
   const [destinations, setDestinations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/destinations/international"
-        );
+        const response = await axios.get("http://localhost:5000/api/destinations/international");
         setDestinations(response.data);
         setLoading(false);
       } catch (err) {
@@ -25,9 +25,12 @@ const InternationalDestination = () => {
   }, []);
 
   const handleOpen = (destination) => {
-    alert(`Opening details for ${destination.name}`);
-    // Add your navigation logic here, e.g.:
-    // window.open(`/destination/${destination.did}`, "_blank");
+    navigate(`/destination/${destination.did}/packages`, {
+      state: {
+        image: destination.image,
+        name: destination.name
+      }
+    });
   };
 
   if (loading) return (
@@ -102,9 +105,6 @@ const InternationalDestination = () => {
                   <h3 className="text-xl font-semibold mb-2 text-gray-800">
                     {destination.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">
-                    {destination.description}
-                  </p>
                 </div>
               </div>
             ))}

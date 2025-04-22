@@ -46,7 +46,7 @@ const Navbar = ({ user, setUser }) => {
           </li>
 
           <li><Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact Us</Link></li>
-          <li><Link to="/Anyfestival" className={location.pathname === "/Anyfestival" ? "active" : ""}>Any Festival</Link></li>
+          {/* <li><Link to="/Anyfestival" className={location.pathname === "/Anyfestival" ? "active" : ""}>Any Festival</Link></li> */}
 
           {user ? (
             <>
@@ -55,7 +55,7 @@ const Navbar = ({ user, setUser }) => {
                 onMouseEnter={() => setDropdownOpen(true)}
                 onMouseLeave={() => setDropdownOpen(false)}
               >
-                <span className="dropdown-title">Welcome, {user.name} <i className="bi bi-chevron-down"></i> </span>
+                <span className="dropdown-title">{user.name} <i className="bi bi-chevron-down"></i> </span>
                 {dropdownOpen && (
                   <ul className="dropdown-menu">
                     <li><Link to="/destinations/Domesticdestinations">Profile</Link></li>
